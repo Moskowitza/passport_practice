@@ -30,17 +30,18 @@ app.set('view engine', '.hbs');
 //Models
 var models = require("./app/models"); 
 
-//Routes !!!! some problem here moved (app) and put it up front
-//WAS var authRoute = require('./app/routes/auth.js')(app);
-var authRoute = require('./app/routes/auth.js')(app);
+//Routes !!!! some problem here moved (app) need to pass passport to our authRoute
+var authRoute = require('./app/routes/auth.js')(app,passport);
 
-//Sync Database
+//load passport strategies
+require('./app/config/passport/passport.js')(passport, models.user);
+
+//Sync Database REMOVE FORCE TRUE to prevent overwrite of table
 models.sequelize.sync({force:true}).then(function() {
-  console.log('Nice! Database looks fine') 
-}).catch(function(err) {
-    console.log(err, "Something went wrong with the Database Update!")
-});
-
+    console.log('Nice! Database looks fine') 
+  }).catch(function(err) {
+      console.log(err, "Something went wrong with the Database Update!")
+  });
 // Make app listen on port 5000. 
 app.listen(5000, function(err) {
     if (!err)
