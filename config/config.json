@@ -7,17 +7,31 @@
         "dialect": "mysql"
     },
     "test": {
-        "username": "root",
-        "password": "mysql2018",
-        "database": "sequelize_passport",
-        "host": "127.0.0.1",
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
+        "host": "",
+ 
         "dialect": "mysql"
+ 
     },
+ 
     "production": {
-        "username": "root",
-        "password": "mysql2018",
-        "database": "sequelize_passport",
+ 
+        "username": "",
+ 
+        "password": null,
+ 
+        "database": "",
+ 
         "host": "127.0.0.1",
+ 
         "dialect": "mysql"
+ 
     }
+ 
 }

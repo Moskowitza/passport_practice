@@ -18,16 +18,23 @@ app.use(bodyParser.json());
 //AFTER the bodyParser import line we initialize PASSPORT and the express session and passport session and add them both as middleware. We do this by adding these lines some spaces 
  
 app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
- 
 app.use(passport.initialize());
- 
 app.use(passport.session()); // persistent login sessions
 
-//Route
+//Routes
 app.get('/', function(req, res) {
     res.send('Welcome to Passport with Sequelize'); 
 });
- 
+
+//Models
+var models = require("./app/models"); 
+//Sync Database
+models.sequelize.sync({force:true}).then(function() {
+  console.log('Nice! Database looks fine') 
+}).catch(function(err) {
+    console.log(err, "Something went wrong with the Database Update!")
+});
+
 // Make app listen on port 5000. 
 app.listen(5000, function(err) {
     if (!err)
