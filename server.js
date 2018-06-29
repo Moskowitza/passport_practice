@@ -4,8 +4,8 @@
 var express = require('express');
 var app = express();
 //middleware : import the passport module and the express-session, both of which we need to handle authentication.
-var passport   = require('passport');
-var session    = require('express-session');
+var passport = require('passport');
+var session  = require('express-session');
 // Then, we import the body-parser module. This extracts the entire body part of an incoming request and exposes it in a format that is easier to work with. In this case, we will use the JSON format.
 var bodyParser = require('body-parser');
 // import the dot-env module to handle environment variables.
@@ -31,13 +31,13 @@ app.set('view engine', '.hbs');
 var models = require("./app/models"); 
 
 //Routes !!!! some problem here moved (app) need to pass passport to our authRoute
-var authRoute = require('./app/routes/auth.js')(app,passport);
+var authRoute = require('./app/routes/auth.js')(app, passport);
 
 //load passport strategies
 require('./app/config/passport/passport.js')(passport, models.user);
 
 //Sync Database REMOVE FORCE TRUE to prevent overwrite of table
-models.sequelize.sync({force:true}).then(function() {
+models.sequelize.sync().then(function() {
     console.log('Nice! Database looks fine') 
   }).catch(function(err) {
       console.log(err, "Something went wrong with the Database Update!")
