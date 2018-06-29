@@ -30,7 +30,8 @@ app.set('view engine', '.hbs');
 //Models
 var models = require("./app/models"); 
 
-//Routes
+//Routes !!!! some problem here moved (app) and put it up front
+//WAS var authRoute = require('./app/routes/auth.js')(app);
 var authRoute = require('./app/routes/auth.js')(app);
 
 
@@ -40,9 +41,6 @@ models.sequelize.sync({force:true}).then(function() {
 }).catch(function(err) {
     console.log(err, "Something went wrong with the Database Update!")
 });
-
-
-
 
 // Make app listen on port 5000. 
 app.listen(5000, function(err) {
