@@ -1,45 +1,23 @@
 {
- 
     "development": {
- 
         "username": "root",
- 
         "password": "mysql2018",
- 
         "database": "sequelize_passport",
- 
         "host": "127.0.0.1",
- 
         "dialect": "mysql"
- 
     },
- 
     "test": {
- 
         "username": "root",
- 
         "password": "mysql2018",
- 
-        "database": "",
- 
-        "host": "",
- 
-        "dialect": "mysql"
- 
-    },
- 
-    "production": {
- 
-        "username": "root",
- 
-        "password": "mysql2018",
- 
-        "database": "",
- 
+        "database": "sequelize_passport",
         "host": "127.0.0.1",
- 
         "dialect": "mysql"
- 
+    },
+    "production": {
+        "username": "root",
+        "password": "mysql2018",
+        "database": "sequelize_passport",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
     }
- 
 }
