@@ -34,7 +34,6 @@ var models = require("./app/models");
 //WAS var authRoute = require('./app/routes/auth.js')(app);
 var authRoute = require('./app/routes/auth.js')(app);
 
-
 //Sync Database
 models.sequelize.sync({force:true}).then(function() {
   console.log('Nice! Database looks fine') 
